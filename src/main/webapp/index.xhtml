@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles.css"/>
+</h:head>
+
+<f:view>
+    <div class="header">
+        <h1>MyBalls</h1>
+    </div>
+    <div class="ms-5 w-50">
+        <h:form>
+            <div class="d-flex flex-column">
+                <h2>Add a new task</h2>
+                <h:outputLabel for="task" value="Task name:"/>
+                <div class="d-flex align-items-center flex-row">
+                    <h:inputText id="task" value="#{todoManager.input}" required="true" requiredMessage="Field is required!" styleClass="form-control"/>
+                    <h:commandButton value="Add a new task" action="#{todoManager.addTask()}" styleClass="btn btn-primary ms-1"/>
+                </div>
+                <h:message for="task" style="color: red"/>
+            </div>
+        </h:form>
+        <div class="d-flex flex-column">
+            <h2>Active tasks</h2>
+            <table class="table bg-light p-3">
+                <tr>
+                    <th>Task</th>
+                    <th>Actions</th>
+                </tr>
+                <ui:repeat value="#{todoManager.activeTasks}" var="f" varStatus="r">
+                    <tr>
+                        <td>#{f.todo}</td>
+                        <td>
+                            <h:form>
+                                <h:commandButton styleClass="btn btn-success" action="#{todoManager.finishTask(r.index)}" value="Finish"/>
+                            </h:form>
+                        </td>
+                    </tr>
+                </ui:repeat>
+            </table>
+            <h2>Finished tasks</h2>
+            <table class="table bg-light p-3">
+                <tr>
+                    <th>Task</th>
+                    <th>Actions</th>
+                </tr>
+                <ui:repeat value="#{todoManager.finishedTasks}" var="f" varStatus="r">
+                    <tr>
+                        <td class="finishedTask">#{f.todo}</td>
+                        <td>
+                            <h:form>
+                                <h:commandButton styleClass="btn btn-danger" action="#{todoManager.deleteTask(r.index)}" value="Delete"/>
+                            </h:form>
+                        </td>
+                    </tr>
+                </ui:repeat>
+            </table>
+        </div>
+    </div>
+</f:view>
+</html>
