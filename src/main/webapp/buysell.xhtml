@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles.css"/>
+</h:head>
+
+
+<f:view>
+    <div class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <h:link styleClass="navbar-brand" outcome="index.xhtml">stockmarket.io</h:link>
+            <div class="collapse navbar-collapse">
+                <div class="navbar-nav">
+                    <h:link styleClass="nav-link" outcome="index.xhtml">View</h:link>
+                    <h:link styleClass="nav-link active" outcome="buysell.xhtml">Buy/Sell</h:link>
+                    <h:link styleClass="nav-link" outcome="create.xhtml">Create</h:link>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="w-75">
+
+        </div>
+    </div>
+</f:view>
+</html>

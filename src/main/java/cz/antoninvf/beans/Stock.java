@@ -1,2 +1,0 @@
-package cz.antoninvf.beans;public class Stock {
-}
